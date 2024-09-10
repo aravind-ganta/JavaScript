@@ -1,2 +1,2 @@
 # Hello-Javascript
-This repo is helps to revise Javascript.
+This repo helps to revise Javascript.
