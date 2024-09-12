@@ -124,3 +124,79 @@ console.log(a);
 **Note:**
 1. Remember **`undefined !== not defined`**, Because undefined means variable is declared but no value is Assigned and not defined means variable is not even declared.
 2. **`undefined`** keyword is like putting a towel for preserving a seat in public transport bus. remember the nice old hack.
+
+## The Scope Chain, Scope & Lexical Environment
+1. **`Scope`** is where we can access any specific variable or function in our code. If there is some **`var b`**, where can I access the **`var b`** that is the scope of **`var b`**.  Scope of a variable is directly dependent on the lexical environment.
+2. Whenever an execution context is created, a lexical environment is created. Lexical environment is the local memory along with the lexical environment of its parent. Lexical as a term means in hierarchy or in sequence.
+3. Having the reference of parent's lexical environment means, the child or the local function can access all the variables and functions defined in the memory space of its lexical parent.
+4. The JS engine first searches for a variable in the current local memory space, if it not found here it searches for the variable in the lexical environment of its parent, and if it still not found, then it searches that variable in the subsequent lexical environments, and the sequence goes on until the variable is found in some lexical environment or the lexical environment becomes NULL.
+5. The mechanism of searching variables in the subsequent lexical environments is known as **`Scope Chain.`** If a variable is not found anywhere, then we say that the variable is not present in the scope chain.
+6. The inner functions can access variable of outer functions up to global execution context (hierarchical parent Lexical Environment). but the outer functions or global execution context can't access variables of insides functions.
+
+**Summary:**
+
+Lexical Environment of its parent is the scope where a function is physically present or defined. So, suppose a function x(), is defined and invoked in the GEC, when function x()'s EC is pushed in the call stack, it stores a reference to its parent's lexical environment i.e. the GEC's memory. Whenever a new Execution Context is pushed in the Call Stack it holds a reference to the Lexical Environment of its parent, i.e. the EC's memory from where it was invoked. Global execution context holds reference to null. JavaScript engine first looks for the variable/function being accessed in the local scope of the function, and if not found, it keeps on searching the lexical environment of its parent until it finds the variable/function being accessed. This mechanism is called SCOPE CHAIN. If the variable accessed is not found in the Scope Chain, then you will get the variable is not defined error in the browser’s console.
+
+**Note:**
+
+**`Lexical environment:`** The Local memory (Created and goes together with 1st phase of corresponding execution context) along with Lexical environment with the parent! and every time the lexical environment of the corresponding context is used, it references to its parent Lexical environment.
+
+> for simply understanding, I will try it as `'an onion example'`, see when one layer of onion(a variable) covers the layer inside it, it also covers the inner layers inside that layer and a point on our first layer of onion encloses inner layers our inner layer(variable and function inside the layer) gets covered by our first layer(can access the variable on the context) and the second layer(under first layer) encloses the third layer(innermost layer)still covered by 1st layer(can access the variable on layer)
+
+scope chain is somewhat like DFS algorithm the difference is in SCOPE chain -> it is going to find the variable till it reaches the last parent lexical environment (if found in some parent's lexical then return from there) and in DFS it deep down from branch to branch (till child) until the element is found.
+
+**`Just a note regarding scope chain for let and const:`**
+If let variable is declared normally without a block suppose inside a function, they will get lexically inherited to lower nested scopes, but if they are declared in a block, they are not available within the same function outside that block of-course but are not even inherited lexically in nested scopes. This means that the block memory scope is not part of the lexical scope chain. 
+
+```
+Try the below 2 functions and one can see the difference:
+function x() {
+    let a = 10;
+    function y() {
+    	console.log(a);
+    }
+    y();
+}
+x();
+//a will be available in the scope chain to be accessible
+ 
+function x() {
+    {let a = 10;}
+    function y() {
+    	console.log(a);
+    }
+    y();
+}
+x();
+//a won't be available in the scope chain, and we get a reference Error
+
+Case: 1 (we are just accessing the outer function variable as there is no variable named b in the inner function)
+function a(){
+    var b = 10
+    c()
+    function c(){
+    	console.log(b)}}
+a()  #here it will print 10
+ 
+Case: 2 (we have created the local variable to funtion c named b so when the engine will look for b it will get its first encounter in inner funtion c only whose value is 5 )
+function a(){
+    var b = 10
+    c()
+    function c(){
+    	var b = 5
+    	console.log(b)}}
+a() #here it will print 5
+ 
+Case: 3 (In this case we have created the variable b in function c. So that means b variable in function is now separate scope than the outer funtion a.
+But when we try to access the b in c before it is assigned we will received undefined as explaion in his previous video.
+had  been  this python  would have received error in this case)
+function a(){
+    var b = 10
+    c()
+    function c(){
+    	console.log(b)
+    	var b = 5  }}
+a()   #here it will print undefined
+
+```
+ 
