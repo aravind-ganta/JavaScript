@@ -109,22 +109,22 @@ const double = (x) => x * 2; // implicit return value
 
 **Summary:**
 
-> Functions are heart of JS. They are called first class citizens or first-class functions because they can be stored in the variables, passed as parameters and arguments. They can also be returned in the function.
+1. Functions are heart of JS. They are called first class citizens or first-class functions because they can be stored in the variables, passed as parameters and arguments. They can also be returned in the function.
 
-> Function statement / Function Declaration: the function is normally defined and can be used later.
+2. Function statement / Function Declaration: the function is normally defined and can be used later.
 
-> Function expression: the function is first created and assigned to a variable so that it can be called by its variable name and unless it is defined, it cannot be executed otherwise it throws out "Uncaught TypeError".
+3. Function expression: the function is first created and assigned to a variable so that it can be called by its variable name and unless it is defined, it cannot be executed otherwise it throws out **`Uncaught TypeError`**.
 
-> Anonymous function: function where there is no need to define name for the function, it just can be assigned to variable.
+4. Anonymous function: function where there is no need to define name for the function, it just can be assigned to variable.
 
-> Named function expression: Normal function with its name assigned to a variable !!In this case you cannot call function by its name in outer scope!! (Scope Chain)
+5. Named function expression: Normal function with its name assigned to a variable !!In this case you cannot call function by its name in outer scope!! (Scope Chain)
 
-> first class Functions / first class citizens: The Ability of use function as value,
+6. first class Functions / first class citizens: The Ability of use function as value,
 
-1. used as values
-2. can be passed as argument
-3. can be executed inside a closured function
-4. can be taken as return
+      * used as values
+      * can be passed as argument
+      * can be executed inside a closured function
+      * can be taken as return
 
 ---
 
