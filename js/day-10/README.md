@@ -19,10 +19,11 @@ In simple words, bind() is used where we are trying to get this value after some
 All these are JS functions which are used to resuse functions by manipulating this value, inside that function.
 
 **`call`** - This function when called attached with the main function which then takes the argument as the callback function, then the callback functions body / data is replaced with the "this" keyword inside the parent function, on which call is attached.
+
 > ```
-Ex: fun(args){this};
-fun.call(data, args);
-````
+> Ex: fun(args){this};
+> fun.call(data, args);
+> ```
 
 **`apply`** - It is exactly the same of call. The only difference is that it takes arguments as array or array of objects.
 

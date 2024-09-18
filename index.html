@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, javascript!</title>
+    <style>
+        div{
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <h1 id ="heading">Welcome, javascript!!!</h1>
     <button id="clickMe" onclick="alert(this)">Click Me</button>
-    <script src="js/day-10/bind.js"></script>
+
+    <div id="grandparent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+
+    <div>
+        <ul id="category">
+            <li id="laptops">Laptops</li>
+            <li id="cameras">Cameras</li>
+            <li id="shoes">Shoes</li>
+        </ul>
+    </div>
+    <div id="form">
+        <input type="text" id="name" onkeyup="betterFunction()"/>
+        <input type="text" id="pan" data-uppercase>
+        <input type="text" id="mobile">
+    </div>
+    <script src="js/day-11/debouncing.js"></script>
 </body>
 </html>
