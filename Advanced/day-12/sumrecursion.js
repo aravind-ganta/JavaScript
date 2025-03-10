@@ -1,3 +1,4 @@
+// 
 let sum = function (a) {
   return function (b) {
     if (b) {

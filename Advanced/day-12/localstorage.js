@@ -3,7 +3,7 @@ localStorage.setItem("name", "Aravind");
 localStorage.setItem("city","Hyderabad");
 
 console.log(localStorage.getItem("name"));
-localStorage.removeItem("city");
+// localStorage.removeItem("city");
 localStorage.clear();
 
 
