@@ -18,7 +18,7 @@ const wholeNumber = 5;
 const decimalNumber = 3.14;
 
 // alert("this is a string"*3);
-console.log(typeof NaN);
+console.log(typeof NaN); //number
 
 // booleans
 const isMale = true;
@@ -30,16 +30,16 @@ if (isMale) {
 }
 
 // Null and Undefined
-let age =null;
-console.log(typeof age);
+let age = null;
+console.log(typeof age); //object
 
 let x;
-console.log(typeof x);
+console.log(typeof x); //undefined
 
 // Objects: group variables
-const person={
-    name: 'Aravind',
-    age:25
+const person = {
+  name: 'Aravind',
+  age: 25
 }
-console.log(person.name);
+console.log(person.name); //Aravind
 
